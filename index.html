@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roc-pap-sci</title>
+</head>
+<style>
+    * {
+  background-color: green;
+}
+#play{
+      text-align: center;
+      color: aliceblue;
+
+
+}
+h1 {
+  text-align: center;
+}
+div {
+  display: flex;
+  justify-content: center;
+}
+div button {
+  margin: 20px 0 20px 40px;
+  background-color: orangered;
+  width: 120px;
+  height: 50px;
+  color: rgb(29, 25, 25);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: wheat;
+  font-size: 18px;
+}
+button:hover {
+  background-color: yellowgreen;
+}
+h2 {
+  padding-left: 40%;
+}
+span {
+  padding: 0 0 0 5px;
+  color: yellowgreen;
+}
+
+
+
+
+</style>
+<body>
+    <h1 id="play">LET'S PLAY</h1>
+      <h1>Rock Paper Scissor</h1>
+  
+      
+  
+      <div>
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissor">Scissor</button>
+      </div>
+  
+
+  
+      <h2>User :<span id="user"></span></h2>
+  
+      
+  
+      <h2>Computer :<span id="computer"></span></h2>
+  
+      
+  
+      <h2>Result :<span id="result"></span></h2>
+
+<!--Js-->
+
+    <script>
+        
+
+let computerplay = document.getElementById("computer");
+let userplay = document.getElementById("user");
+let resultview = document.getElementById("result");
+
+//User Play
+
+let choice = document.querySelectorAll("button");
+choice.forEach((choice) =>
+  choice.addEventListener("click", (e) => {
+    userchoice = e.target.id;
+    userplay.innerHTML = userchoice;
+    computerchoice();
+    results();
+  })
+);
+
+//Computer Play
+
+function computerchoice() {
+  let swing = Math.floor(Math.random() * 3);
+  if (swing === 0) {
+    choosen = "Rock";
+  }
+  if (swing === 1) {
+    choosen = "Paper";
+  }
+  if (swing === 2) {
+    choosen = "Scissor";
+  }
+  computerplay.innerHTML = choosen; 
+}
+
+//Result
+
+function results() {
+  if (userchoice === choosen) {
+    result = "Match draw";
+  }
+  if (userchoice === "Rock" && choosen === "Scissor") {
+    result = "you win";
+  }
+  if (userchoice === "Scissor" && choosen === "Paper") {
+    result = "you win";
+  }
+  if (userchoice === "Paper" && choosen === "Rock") {
+    result = "you win";
+  }
+  if (userchoice === "Scissor" && choosen === "Rock") {
+    result = "you lose";
+  }
+  if (userchoice === "Paper" && choosen === "Scissor") {
+    result = "you lose";
+  }
+  if (userchoice === "Rock" && choosen === "Paper") {
+    result = "you lose";
+  }
+  resultview.innerHTML = result;
+}
+    </script>
+</body>
+</html>
+    
+</body>
+</html>

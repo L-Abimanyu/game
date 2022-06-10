@@ -1,1 +1,2 @@
 # game
+rock-papper-scissor
